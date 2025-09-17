@@ -76,7 +76,7 @@ public class Lab2TsumbaliukKI304 {
         // Stop the boat
         boat2.stop();
 
-        // Show updated boat information
+        /// Show updated boat information
         boat2.boatInfo();
 
         // Close log file

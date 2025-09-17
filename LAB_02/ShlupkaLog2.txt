@@ -1,5 +1,5 @@
 Number of oars: 5
-Boat material: plastic
+Boat's material: plastic
 Hull length: 8.0
 Hull width: 4.0
 Seats: 8
@@ -13,7 +13,7 @@ Status: not moving
 Boat starts moving with 8 passangers
 Boat stops moving with 8 passangers
 Number of oars: 5
-Boat material: plastic
+Boat's material: plastic
 Hull length: 8.0
 Hull width: 4.0
 Seats: 8

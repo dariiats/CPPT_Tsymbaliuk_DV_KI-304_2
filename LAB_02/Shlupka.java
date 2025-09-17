@@ -148,7 +148,7 @@ public class Shlupka {
      */
     public void boatInfo() {
         fout.println("Number of oars: " + oars.getCountOars());
-        fout.println("Boat material: " + hull.material);
+        fout.println("Boat's material: " + hull.material);
         fout.println("Hull length: " + hull.lengthMeters);
         fout.println("Hull width: " + hull.widthMeters);
         fout.println("Seats: " + seats.countSeats);
