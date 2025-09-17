@@ -1,0 +1,21 @@
+Number of oars: 2
+Boat material: wood
+Hull length: 6.0
+Hull width: 2.0
+Seats: 6
+Passengers: 0
+Status: not moving
+Load passangers. Boat has: 1 passangers
+Impossible unload this count. Boat has: 1 passangers
+All available passengers boarded: 5. Total now: 6
+Available passenger seats: 0
+Status: not moving
+Boat starts moving with 6 passangers
+Boat stops moving with 6 passangers
+Number of oars: 2
+Boat material: wood
+Hull length: 6.0
+Hull width: 2.0
+Seats: 6
+Passengers: 6
+Status: not moving
