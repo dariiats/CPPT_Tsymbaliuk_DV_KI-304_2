@@ -22,14 +22,23 @@ public class Lab2TsumbaliukKI304 {
         // Display initial boat information
         boat1.boatInfo();
 
+        //Get count oars
+        boat1.getCountOars();
+
+        //Add 1 oars
+        boat1.addOars();
+
+        //Remove 1 oars
+        boat1.removeOars();
+
         // Load 1 passenger
         boat1.loadPassangers(1);
 
+        //Get hull material
+        boat1.getHullMaterial();
+
         // Attempt to unload 2 passengers (should show a warning)
         boat1.unloadPassangers(2);
-
-        // Board all remaining available passengers
-        boat1.boardAllPassengers();
 
         // Show remaining capacity
         boat1.passengerCapacityLeft();
@@ -50,7 +59,7 @@ public class Lab2TsumbaliukKI304 {
         boat1.dispose();
 
         // Create boat with custom configuration and log file
-        Shlupka boat2 = new Shlupka(5, "plastic", 8, 4, 8, "ShlupkaLog2.txt");
+        Shlupka boat2 = new Shlupka(6, "plastic", 8, 4, 8, "ShlupkaLog2.txt");
 
         // Display initial boat information
         boat2.boatInfo();
@@ -61,9 +70,6 @@ public class Lab2TsumbaliukKI304 {
         // Unload 2 passengers
         boat2.unloadPassangers(2);
 
-        // Board all remaining available passengers
-        boat2.boardAllPassengers();
-
         // Show remaining capacity
         boat2.passengerCapacityLeft();
 
@@ -72,9 +78,6 @@ public class Lab2TsumbaliukKI304 {
 
         // Start rowing
         boat2.row();
-
-        // Stop the boat
-        boat2.stop();
 
         /// Show updated boat information
         boat2.boatInfo();

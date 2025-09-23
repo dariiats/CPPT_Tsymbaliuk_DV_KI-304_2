@@ -10,17 +10,33 @@ import java.io.PrintWriter;
  */
 public class Shlupka {
 
+    /** Represents the boat's oars. */
     private Oars oars;
+
+    /** Represents the boat's hull. */
     private Hull hull;
+
+    /** Represents the boat's seats. */
     private Seats seats;
+
+    /** Current number of passengers in the boat. */
     private int passanger;
+
+    /** Indicates whether the boat is moving. */
     private boolean move;
-    PrintWriter fout;
+
+    /** Output writer for logging actions to a file. */
+    private PrintWriter fout;
 
     /**
      * Default constructor. Creates a boat with default configuration:
-     * 2 oars, wooden hull 6x2 meters, 6 seats, and empty log file "ShlupkaLog.txt".
-     * 
+     * <ul>
+     *     <li>2 oars</li>
+     *     <li>wooden hull 6x2 meters</li>
+     *     <li>6 seats</li>
+     *     <li>log file: "ShlupkaLog.txt"</li>
+     * </ul>
+     *
      * @throws FileNotFoundException if the log file cannot be created
      */
     public Shlupka() throws FileNotFoundException {
@@ -54,6 +70,36 @@ public class Shlupka {
     }
 
     /**
+     * Logs the number of oars the boat currently has.
+     */
+    public void getCountOars() {
+        fout.println("Boat has: " + oars.getCountOars());
+    }
+
+    /**
+     * Adds one oar to the boat and logs the action.
+     */
+    public void addOars() {
+        oars.addOars();
+        fout.println("Add oars. Boat has: " + oars.getCountOars());
+    }
+
+    /**
+     * Removes one oar from the boat and logs the action.
+     */
+    public void removeOars() {
+        oars.removeOars();
+        fout.println("Remove oars. Boat has: " + oars.getCountOars());
+    }
+
+    /**
+     * Logs the material of the boat's hull.
+     */
+    public void getHullMaterial() {
+        fout.println("Boat materials is: " + hull.getMaterial());
+    }
+
+    /**
      * Loads a specified number of passengers onto the boat.
      * Logs the action and warns if there are not enough seats.
      *
@@ -65,20 +111,6 @@ public class Shlupka {
             fout.println("Load passangers. Boat has: " + passanger + " passangers");
         } else {
             fout.println("Too many passengers. Maximum seats: " + seats.countSeats + ". Current: " + passanger);
-        }
-    }
-
-    /**
-     * Loads all available passengers onto the boat.
-     * Logs how many passengers were boarded.
-     */
-    public void boardAllPassengers() {
-        int availableSeats = seats.getCountSeats() - passanger;
-        if (availableSeats > 0) {
-            passanger += availableSeats;
-            fout.println("All available passengers boarded: " + availableSeats + ". Total now: " + passanger);
-        } else {
-            fout.println("No available seats to board passengers. Total passengers: " + passanger);
         }
     }
 
@@ -128,14 +160,14 @@ public class Shlupka {
     }
 
     /**
-     * Prints the current movement status to the log file.
+     * Logs the current movement status of the boat.
      */
     public void status() {
         fout.println("Status: " + (move ? "moving" : "not moving"));
     }
 
     /**
-     * Prints the number of free seats available for passengers.
+     * Logs the number of free seats available for passengers.
      */
     public void passengerCapacityLeft() {
         int left = seats.getCountSeats() - passanger;
@@ -144,27 +176,16 @@ public class Shlupka {
     }
 
     /**
-     * Prints full information about the boat's configuration and current state.
+     * Logs full information about the boat's configuration and current state.
      */
     public void boatInfo() {
         fout.println("Number of oars: " + oars.getCountOars());
-        fout.println("Boat's material: " + hull.material);
-        fout.println("Hull length: " + hull.lengthMeters);
-        fout.println("Hull width: " + hull.widthMeters);
-        fout.println("Seats: " + seats.countSeats);
+        fout.println("Boat's material: " + hull.getMaterial());
+        fout.println("Hull length: " + hull.getLengthMeters());
+        fout.println("Hull width: " + hull.getWidthMeters());
+        fout.println("Seats: " + seats.getCountSeats());
         fout.println("Passengers: " + passanger);
         fout.println("Status: " + (move ? "moving" : "not moving"));
-    }
-
-    /**
-     * Clears the log file and starts a new session.
-     *
-     * @throws FileNotFoundException if the log file cannot be created
-     */
-    public void clearLog() throws FileNotFoundException {
-        fout.close();
-        fout = new PrintWriter(new File("ShlupkaLog.txt"));
-        fout.println("----- New session -----");
     }
 
     /**
@@ -178,19 +199,49 @@ public class Shlupka {
      * Inner class representing oars of the boat.
      */
     class Oars {
+        /** Number of oars. */
         private int countOars;
 
-        private Oars() { countOars = 2; }
+        /**
+         * Default constructor. Creates 2 oars.
+         */
+        private Oars() {
+            countOars = 2;
+        }
 
-        private Oars(int countOars) { this.countOars = countOars; }
+        /**
+         * Constructor with parameter.
+         *
+         * @param countOars number of oars
+         */
+        private Oars(int countOars) {
+            this.countOars = countOars;
+        }
 
-        private int getCountOars() { return countOars; }
+        /**
+         * Gets the number of oars.
+         *
+         * @return number of oars
+         */
+        private int getCountOars() {
+            return countOars;
+        }
 
-        private void addOars() { countOars++; }
+        /**
+         * Adds one oar.
+         */
+        private void addOars() {
+            countOars++;
+        }
 
+        /**
+         * Removes one oar if available, otherwise prints a warning.
+         */
         private void removeOars() {
-            if (countOars > 0) countOars--;
-            else System.out.println("No oars to remove!");
+            if (countOars > 0)
+                countOars--;
+            else
+                System.out.println("No oars to remove!");
         }
     }
 
@@ -198,48 +249,95 @@ public class Shlupka {
      * Inner class representing the hull of the boat.
      */
     class Hull {
+        /** Material of the hull. */
         private String material;
+
+        /** Length of the hull in meters. */
         private double lengthMeters;
+
+        /** Width of the hull in meters. */
         private double widthMeters;
 
+        /**
+         * Default constructor. Creates a wooden hull 6x2 meters.
+         */
         private Hull() {
             material = "wood";
             lengthMeters = 6;
             widthMeters = 2;
         }
 
+        /**
+         * Constructor with parameters.
+         *
+         * @param material     hull material
+         * @param lengthMeters hull length
+         * @param widthMeters  hull width
+         */
         private Hull(String material, double lengthMeters, double widthMeters) {
             this.material = material;
             this.lengthMeters = lengthMeters;
             this.widthMeters = widthMeters;
         }
 
-        private String getMaterial() { return material; }
+        /**
+         * Gets the hull material.
+         *
+         * @return hull material
+         */
+        private String getMaterial() {
+            return material;
+        }
 
-        private void setMaterial(String material) { this.material = material; }
+        /**
+         * Gets the hull length in meters.
+         *
+         * @return hull length
+         */
+        private double getLengthMeters() {
+            return lengthMeters;
+        }
 
-        private double getLengthMeters() { return lengthMeters; }
-
-        private double getWidthMeters() { return widthMeters; }
+        /**
+         * Gets the hull width in meters.
+         *
+         * @return hull width
+         */
+        private double getWidthMeters() {
+            return widthMeters;
+        }
     }
 
     /**
      * Inner class representing seats of the boat.
      */
     class Seats {
+        /** Number of seats in the boat. */
         private int countSeats;
 
-        private Seats() { countSeats = 6; }
+        /**
+         * Default constructor. Creates 6 seats.
+         */
+        private Seats() {
+            countSeats = 6;
+        }
 
-        private Seats(int countSeats) { this.countSeats = countSeats; }
+        /**
+         * Constructor with parameter.
+         *
+         * @param countSeats number of seats
+         */
+        private Seats(int countSeats) {
+            this.countSeats = countSeats;
+        }
 
-        private int getCountSeats() { return countSeats; }
-
-        private void addSeats() { countSeats++; }
-
-        private void removeSeats() {
-            if (countSeats > 0) countSeats--;
-            else System.out.println("No seats to remove!");
+        /**
+         * Gets the number of seats.
+         *
+         * @return number of seats
+         */
+        private int getCountSeats() {
+            return countSeats;
         }
     }
 }

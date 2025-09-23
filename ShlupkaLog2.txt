@@ -1,4 +1,4 @@
-Number of oars: 5
+Number of oars: 6
 Boat's material: plastic
 Hull length: 8.0
 Hull width: 4.0
@@ -7,15 +7,13 @@ Passengers: 0
 Status: not moving
 Load passangers. Boat has: 5 passangers
 Unload passangers. Boat has: 3 passangers
-All available passengers boarded: 5. Total now: 8
-Available passenger seats: 0
+Available passenger seats: 5
 Status: not moving
-Boat starts moving with 8 passangers
-Boat stops moving with 8 passangers
-Number of oars: 5
+Boat starts moving with 3 passangers
+Number of oars: 6
 Boat's material: plastic
 Hull length: 8.0
 Hull width: 4.0
 Seats: 8
-Passengers: 8
-Status: not moving
+Passengers: 3
+Status: moving
