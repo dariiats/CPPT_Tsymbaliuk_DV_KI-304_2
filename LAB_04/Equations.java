@@ -38,16 +38,18 @@ class Equations {
      */
     public double calculate(int x) throws CalcException {
         double y, rad;
-        rad = x * Math.PI / 180.0; // convert degrees to radians
+        rad = Math.cos(90); // convert degrees to radians
 
         try {
-            y = 1 / Math.cos(4 * rad);
+            y = 1 / 0;
 
             // Validate the result: check for NaN, infinity, or division by zero
             if (Double.isNaN(y) || Double.isInfinite(y) || Math.cos(4 * rad) == 0) {
                 throw new ArithmeticException();
             }
         } 
+        
+        
         catch (ArithmeticException ex) {
             // Provide meaningful error messages for specific cases
             if (Math.cos(4 * rad) == 0)
