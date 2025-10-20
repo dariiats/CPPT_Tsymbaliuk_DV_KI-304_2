@@ -67,10 +67,10 @@ public class Lab5TsymbaliukKi304 {
 
         // Read and display results from both files
         obj.readResBin("BinRes.bin");
-        System.out.println("Result from .txt is: " + obj.getResult());
+        System.out.println("Result from .bin is: " + obj.getResult());
 
         obj.readResTxt("textRes.txt");
-        System.out.println("Result from .bin is: " + obj.getResult());
+        System.out.println("Result from .txt is: " + obj.getResult());
 
         s.close();
     }
