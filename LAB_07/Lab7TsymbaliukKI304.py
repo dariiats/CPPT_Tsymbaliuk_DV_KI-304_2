@@ -3,7 +3,7 @@ import sys
 rows_num = int(input("Enter size of matrix: "))
 filler = input("Enter symbol-filler: ")
 
-lst = [[filler for _ in range(rows_num)] for _ in range(rows_num)]
+lst = [[filler for _ in range(i + 1)] for i in range(rows_num)]
 
 if len(filler) == 1: 
     sizeArr = rows_num // 2 if rows_num % 2 == 0 else (rows_num // 2 + 1)
