@@ -1,6 +1,6 @@
 class Seats:
     def __init__(self, countSeats = 6):
-        self.countSeats = countSeats
+        self._countSeats = countSeats
     
     def getCountSeats(self):
-        return self.countSeats
+        return self._countSeats

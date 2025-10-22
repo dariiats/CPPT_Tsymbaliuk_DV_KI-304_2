@@ -1,12 +1,12 @@
 class Oars:
     def __init__(self, countOars=2):
-        self.countOars = countOars
+        self._countOars = countOars
 
     def getCountOars(self):
-        return self.countOars
+        return self._countOars
     
     def addOars(self):
-        self.addOars+=1
+        self._addOars+=1
     
     def removeOars(self):
-        self.removeOars+=1
+        self._removeOars+=1
